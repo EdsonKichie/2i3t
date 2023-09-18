@@ -1,21 +1,50 @@
-function alo_mundo(){
+function alo_mundo() {
     alert("Projeto Iniciado! Alô!")
 }
 
 escrever = msg => alert(msg);
-soma = (a,b) => a + b;
-sub = (a,b) => a - b;
-mult = (a,b) => a * b;
-div = (a,b) => a / b;
+let a = 0;
+let b = 0;
+let valor = 0;
+let executar = "";
+soma = (a, b) => a + b;
+sub = (a, b) => a - b;
+mult = (a, b) => a * b;
+div = (a, b) => a / b;
 raiz = a => Math.sqrt(a);
 
-equacao2Grau = (a,b,c) => {
-    let delta = sub(mult(b,b),mult(4,mult(a,c)));
+equacao2Grau = (a, b, c) => {
+    let delta = sub(mult(b, b), mult(4, mult(a, c)));
     if (delta < 0) return "Não possui raiz real.";
-    if (delta == 0) return "x1 = x2 = " + div(-b,mult(2,a));
+    if (delta == 0) return "x1 = x2 = " + div(-b, mult(2, a));
 
-    return "x1 = " + div(soma(-b,raiz(delta)), mult(2,a)) +
-    " x2 = " + div(sub(-b,raiz(delta)), mult(2,a));
+    return "x1 = " + div(soma(-b, raiz(delta)), mult(2, a)) +
+        " x2 = " + div(sub(-b, raiz(delta)), mult(2, a));
+}
+ function mostrar_resultado() {
+    document.getElementById("resultado").value = valor;
+ }
+
+function calcular(){
+    if (executar != "") {
+        if (executar = "soma") mostrar_resultado( soma(a, b));
+        if (executar = "sub") mostrar_resultado(sub(a, b));
+        if (executar = "div") mostrar_resultado(div(a, b));
+        if (executar = "mult") mostrar_resultado(mullt(a, b));
+        executar = "";
+        a = "";
+        b = "";
+    }
+
 }
 
-escrever(equacao2Grau(3,-2,-1));
+function digitando(tecla){
+    if(executar == "") {
+        a += tecla;
+        alert (a);
+    } else {
+        b
+    }
+}
+
+
