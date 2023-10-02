@@ -3,8 +3,8 @@ let a = 0;
 let b = 0;
 let valor = "";
 let executar = "";
-temPonto = false;
-let desligada = true;
+let temPonto = false;
+let desligada = false;
 soma = (a, b) => Number(a) + Number(b);
 sub = (a, b) => Number(a) - Number(b);
 mult = (a, b) => Number(a) * Number(b);
@@ -42,15 +42,28 @@ function calcular() {
 }
 
 function desliga(){
+    desligada = !desligada;
     if(desligada){
         zerar();
     } else{
         zerar()
         mostrar_resultado();
     }
-    desligada = !desligada; 
+    return desligada;
 }
+
+desliga();
+
+function calcula_raiz(){
+    if(valor == ""){
+        valor = 0;
+    }
+    valor = raiz(valor);
+    mostrar_resultado();
+}
+
 function zerar(){
+    if(desligada) return;
     a = "";
     b = "";
     valor = "0";
@@ -60,6 +73,7 @@ function zerar(){
 }
 
 function operacao(op){
+    if(desligada) return;
     executar = op;
     a = valor;
     valor = "";
@@ -67,6 +81,7 @@ function operacao(op){
 
 
 function digitando(tecla) {
+    if(desligada) return;
     if (tecla == ".") {
         if (!temPonto) {
             valor = valor + tecla;
