@@ -23,16 +23,28 @@ equacao2Grau = (a, b, c) => {
 function mostrar_resultado() {
     document.getElementById("resultado").value = valor;
 }
+function raiz_quadrada(){
+    valor=raiz(valor);
+    mostrar_resultado();
+    valor = "";
 
+}
+function porcentagem(){
+    if(executar == "mult"){
+    b = valor;
+    valor = div(mult(a,b),100);
+    mostrar_resultado();
+    valor = "";
+    }
+}
 function calcular() {
     if (executar != "") {
         b = valor;
-        if (executar == "soma") valor = soma(a,b);
-        if (executar == "sub") valor = sub(a,b);
-        if (executar == "div") valor = div(a,b);
-        if (executar == "mult") valor = mult(a,b);
-        if (executar == "porc") valor = mult((div(a,100)),b);
-        if (executar == "raiz") valor = raiz(a);
+        if (executar == "soma") valor = soma(Number(a),Number(b));
+        if (executar == "sub") valor = sub(Number(a),Number(b));
+        if (executar == "div") valor = div(Number(a),Number(b));
+        if (executar == "mult") valor = mult(Number(a),Number(b));
+        
         mostrar_resultado();
         executar = ""
         a = "";
@@ -42,17 +54,16 @@ function calcular() {
 }
 
 function desliga(){
-    desligada = !desligada;
     if(desligada){
+        desligada = false;
         zerar();
     } else{
         zerar()
         mostrar_resultado();
+        desligada = true;
     }
     return desligada;
 }
-
-desliga();
 
 function calcula_raiz(){
     if(valor == ""){
